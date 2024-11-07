@@ -1,46 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flixnet</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet">
-    <title>VK FLIX</title>
-<head>
-
-    <body>
-        <header>VK FLIX</header>
-        
-        <section class="chamada">
-            <div class="chamada-texto">
-                <h1>Kung Fu Panda 4</h1>
-                <p>#KungFuPanda</p>
-                <div>
-
-                </div>
-                <iframe width="560" src="https://youtu.be/yzXz9r5EyxU" frameborder="315" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <div>
-              <section>
-
-              </section class="categoria">
-              <h2>Filmes e séries</h2>
-              <div class="categoria-videos"></div>          
-                <a href="https://www.youtube.com/watch?v=LOIMD084NlE&t=1s">
-                    <img src="https://i.ytimg.com/vi/va-7FEpUHVQ/maxresdefault.jpg">
-                </a>
-             <a href="https://www.youtube.com/watch?v=aDyQxtg0V2w">
-              <img src="https://www.rua.ufscar.br/wp-content/uploads/2024/04/ghostbusters_apocalipse_de_gelo_novo_filme_de_os_caca-fantasmas_estreia_nos_cinemas_brasileiros_foto_divulgacaosony_pictures.jpg" alt="">
-            </a>
-            <a href="https://www.youtube.com/watch?v=55D_3uaKXYE">
-                <img src="https://ingresso-a.akamaihd.net/prd/img/movie/garfield-fora-de-casa/ae8c28e2-84af-44b6-a0d8-a4615684efab.webp" alt="">
-            </a>
-            <div>
-                <section>
-                </body>
-
-                <html>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;1&display=swap" rel="stylesheet">
 </head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <h1>Flixnet</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#filmes">Filmes</a></li>
+                <li><button id="toggle-theme">Modo Escuro</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Carrossel de Destaques -->
+        <section id="home" class="carrossel">
+            <h2>Destaques</h2>
+            <div class="carrossel-container">
+                <div class="slide active">
+                    <img src="https://img.youtube.com/vi/gt_fAE1Eg2Q/maxresdefault.jpg" alt="Homem-Aranha no Aranhaverso">
+                </div>
+                <div class="slide">
+                    <img src="https://img.youtube.com/vi/nCmIwcycUJ8/maxresdefault.jpg" alt="Outro filme em destaque">
+                </div>
+            </div>
+        </section>
+
+        <!-- Filmes e Séries -->
+        <section id="filmes" class="categoria">
+            <h2>Filmes e séries</h2>
+            <div class="categoria-videos">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Z_fEN4sT6-Q?si=LrLShrn_J3PSBETh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </a>
+                <!-- Repita para outras miniaturas -->
+            </div>
+        </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Modo Escuro/Claro
+        const themeToggle = document.getElementById('toggle-theme');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.innerText = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Escuro';
+        });
+
+        // Carrossel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 3000);
+    </script>
+</body>
+
+</html>
